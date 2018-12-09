@@ -2,7 +2,7 @@
  * Start Bootstrap - Grayscale v5.0.2 (https://startbootstrap.com/template-overviews/grayscale)
  * Copyright 2013-2018 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-grayscale/blob/master/LICENSE)
- /* */#mainNav{min-height:56px;background-color:#fff} */
+ */#mainNav{min-height:56px;background-color:#fff}
  #mainNav .navbar-toggler{font-size:80%;padding:.75rem;color:#64a19d;border:1px solid #64a19d}
  #mainNav .navbar-toggler:focus{outline:0}
  #mainNav .navbar-brand{color:#161616;font-weight:700;padding:.9rem 0}
