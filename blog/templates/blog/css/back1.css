@@ -9,7 +9,7 @@ body{
     
     width: 100%;
     height: 100%;
-    background-image: url('..//img/Backback.jpg');
+    background-image: url('/blog/img/Backback.jpg');
     background-size: cover; 
 
 }
