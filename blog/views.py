@@ -2,8 +2,21 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Post
 from .forms import PostForm
+# import pyrebase
 
-def post_list(request):
+# config = {
+#     'apiKey': "AIzaSyAk_QAxeYfqQYzKVD2MYzxKJc9YB2QqYHo",
+#     'authDomain': "farm-b3a67.firebaseapp.com",
+#     'databaseURL': "https://farm-b3a67.firebaseio.com",
+#     'projectId': "farm-b3a67",
+#     'storageBucket': "farm-b3a67.appspot.com",
+#     'messagingSenderId': "997525970560"
+#   }
+# firebase = pyrebase.initialize_app(config)
+
+# auth = firebase.auth()
+
+def post_first(request):
     # posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
     return render(request, 'blog/1หน้า Home.html')
 
