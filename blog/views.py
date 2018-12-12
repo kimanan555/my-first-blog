@@ -16,36 +16,52 @@ from .forms import PostForm
 
 # auth = firebase.auth()
 
-def post_first(request):
-    # posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
-    return render(request, 'blog/1หน้า Home.html')
+# def post_first(request):
+#     # posts = Post.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
+#     return render(request, 'blog/1หน้า Home.html')
 
-def post_detail(request):
-    return render(request, 'blog/2หน้า Cost No.1.html')
+# def post_detail(request):
+#     return render(request, 'blog/2หน้า Cost No.1.html')
 
-def post_new(request):
-    # if request.method == "POST":
-    #     form = PostForm(request.POST)
-    #     if form.is_valid():
-    #         post = form.save(commit=False)
-    #         post.author = request.user
-    #         post.published_date = timezone.now()
-    #         post.save()
-    #         return redirect('post_detail', pk=post.pk)
-    # else:
-    #     form = PostForm()
-    return render(request, 'blog/3หน้า How to care.html')
+# def post_new(request):
+#     if request.method == "POST":
+#         form = PostForm(request.POST)
+#         if form.is_valid():
+#             post = form.save(commit=False)
+#             post.author = request.user
+#             post.published_date = timezone.now()
+#             post.save()
+#             return redirect('post_detail', pk=post.pk)
+#     else:
+#         form = PostForm()
+#     return render(request, 'blog/3หน้า How to care.html')
 
-def post_edit(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    if request.method == "POST":
-        form = PostForm(request.POST, instance=post)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.author = request.user
-            post.published_date = timezone.now()
-            post.save()
-            return redirect('post_detail', pk=post.pk)
-    else:
-        form = PostForm(instance=post)
-    return render(request, 'blog/post_edit.html', {'form': form})
+# def post_edit(request, pk):
+#     post = get_object_or_404(Post, pk=pk)
+#     if request.method == "POST":
+#         form = PostForm(request.POST, instance=post)
+#         if form.is_valid():
+#             post = form.save(commit=False)
+#             post.author = request.user
+#             post.published_date = timezone.now()
+#             post.save()
+#             return redirect('post_detail', pk=post.pk)
+#     else:
+#         form = PostForm(instance=post)
+#     return render(request, 'blog/post_edit.html', {'form': form})
+def Main(request):
+    return render(request, 'blog/Main.html')
+def Cost(request):
+    return render(request, 'blog/Cost.html')
+def How_to_care(request):
+    return render(request, 'blog/How_to_care.html')
+def Control01(request):
+    return render(request, 'blog/Control01.html')
+def Control02(request):
+    return render(request, 'blog/Control02.html')
+def Getstarto(request):
+    return render(request, 'blog/Getstarto.html')
+def Setting01(request):
+    return render(request, 'blog/Setting01.html')
+def Setting02(request):
+    return render(request, 'blog/Setting02.html')
