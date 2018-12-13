@@ -76,12 +76,8 @@ def Setting02(request):
           form=dtForm(request.POST)
           data = database.child('Suggest').child('Asparagus').child('EC').get().val()
           if form.is_valid():
-                print('vali    posts     posts = dt.objectsJcom",
-#     'dL'URRL': 'stoagee.(config)
-# database=firedta47a09b9709b614b9c
-3CmG7uIpEcJF= fiN0ao"
-ain'rebas jects.order_by('-id')[0]
-                print(postss.pH)
+                posts=dt.objects.order_by('-id')[0]
+                print(posts.pH)
                 return render(request, 'blog/Setting02.html',{'form':form})
           # else:
                 # print('not valid')
