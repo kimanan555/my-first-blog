@@ -84,7 +84,7 @@
                         <form method="post">
                         {% csrf_token %}
                         <table class="table table-borderless">
-                        <form method="post">
+                        {% comment %} <form method="post"> {% endcomment %}
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
@@ -97,7 +97,7 @@
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">pH</th>
-                                    <th scope="col"><input type="number" name="pH" min="0" max="5" scope="col" id='pH'></th>
+                                    <th scope="col"><input type="number" name="pH" min="0" max="7" scope="col" id='pH'></th>
                                 </tr>
                             </thead>
                             <tbody>

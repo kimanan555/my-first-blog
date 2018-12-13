@@ -22,3 +22,9 @@ class dt(models.Model):
     temp=models.IntegerField(default=0)
     Ec=models.IntegerField(default=0)
     Water=models.IntegerField(default=0)
+
+class dt2(models.Model):
+    pH=models.IntegerField(default=0)
+    temp=models.IntegerField(default=0)
+    Ec=models.IntegerField(default=0)
+    Water=models.IntegerField(default=0)
