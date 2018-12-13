@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+<META HTTP-EQUIV="Refresh" CONTENT="5;URL=http://127.0.0.1:8000/Cost/">
+<meta charset="UTF-8">
+<title>Title</title>
+<style>
+        div{
+        position : absolute;
+        right : 10px;
+        top : 5px
+        }
+    </style>
+</head>
+<body>
+<div>
+<button type="button" onclick="location.href='{% url 'Main' %}'">Logout</button>
+</div>
+Ec : {{d}}
+<br><br>
+
+</body>
+</html>
+{% comment %} {% url 'Main' %}
+{% url 'Getstarto' %}
+{% url 'How_to_care' %}
+{% url 'Cost' %}
+{% url 'Control01' %}
+{% url 'Control02' %}
+{% url 'Setting01' %}
+{% url 'Setting02' %} {% endcomment %}
