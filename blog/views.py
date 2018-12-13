@@ -60,7 +60,24 @@ def Cost(request):
     data = database.child('Asparagus').child('EC').get().val()
     return render(request, 'blog/Cost.html',{'d':data})
 def How_to_care(request):
-    return render(request, 'blog/How_to_care.html')
+    EC1 = database.child('Suggest').child('Asparagus').child('EC').get().val()
+    Temp1 = database.child('Suggest').child('Asparagus').child('Temp').get().val()
+    Time1 = database.child('Suggest').child('Asparagus').child('Time').get().val()
+    pH1 = database.child('Suggest').child('Asparagus').child('pH').get().val()
+    EC2 = database.child('Suggest').child('Broccoli').child('EC').get().val()
+    Temp2 = database.child('Suggest').child('Broccoli').child('Temp').get().val()
+    Time2 = database.child('Suggest').child('Broccoli').child('Time').get().val()
+    pH2 = database.child('Suggest').child('Broccoli').child('pH').get().val()
+    EC3 = database.child('Suggest').child('Grand Rapids Lettuce').child('EC').get().val()
+    Temp3 = database.child('Suggest').child('Grand Rapids Lettuce').child('Temp').get().val()
+    Time3 = database.child('Suggest').child('Grand Rapids Lettuce').child('Time').get().val()
+    pH3 = database.child('Suggest').child('Grand Rapids Lettuce').child('pH').get().val()
+    form={
+          'EC1':EC1, 'Temp1':Temp1, 'Time1':Time1 ,'pH1':pH1,
+          'EC2':EC2, 'Temp2':Temp2, 'Time2':Time2 ,'pH2':pH2,
+          'EC3':EC3, 'Temp3':Temp3, 'Time3':Time3 ,'pH3':pH3
+    }
+    return render(request, 'blog/How_to_care.html',form)
 def Control01(request):
     data = database.child('Data').get().val()
     # data = database.child('Suggest').child('Asparagus').child('EC').get().val()

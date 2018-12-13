@@ -54,7 +54,6 @@
 
   <header >
     <div class="container-fluid">
-
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -68,6 +67,7 @@
               <div class="textice">How to Care</div>
               <div class="row">
                 <div class="col-5">
+                <form>
                   <table class="table table-borderless">
                     <thead>
                       <tr>
@@ -79,32 +79,33 @@
                     <thead>
                       <tr>
                         <th scope="col"></th>
-                        <th scope="col">Hp</th>
-                        <th scope="col"> 0</th>
+                        <th scope="col">pH</th>
+                        <th scope="col">{{pH1}}</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">temperature</th>
-                        <th scope="col"> 0 ํC</th>
+                        <th scope="col">Temperature</th>
+                        <th scope="col">{{Temp1}}  ํC</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col" d>Ec</th>
-                        <th scope="col">0</th>
+                        <th scope="col" d>EC</th>
+                        <th scope="col">{{EC1}}</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">Water</th>
-                        <th scope="col">0%</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">{{Time1}}</th>
                       </tr>
                     </tbody>
                   </table>
                 </div>
+                </form>
                 <div class="col-7 ">
                   <div class="text-center">
                     <img class="align-self-end mr-0" src="{% static 'img/ผัก01.png' %}" alt="Generic placeholder image ">
@@ -126,35 +127,28 @@
                     <thead>
                       <tr>
                         <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead>
-                    <thead>
-                      <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Hp</th>
-                        <th scope="col"> 0</th>
+                        <th scope="col">pH</th>
+                        <th scope="col">{{pH2}}</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">temperature</th>
-                        <th scope="col"> 0 ํC</th>
+                        <th scope="col">Temperature</th>
+                        <th scope="col">{{Temp2}}  ํC</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col" d>Ec</th>
-                        <th scope="col">0</th>
+                        <th scope="col" d>EC</th>
+                        <th scope="col">{{EC2}}</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">Water</th>
-                        <th scope="col">0%</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">{{Time2}}</th>
                       </tr>
                     </tbody>
                   </table>
@@ -180,35 +174,28 @@
                     <thead>
                       <tr>
                         <th scope="col"></th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead>
-                    <thead>
-                      <tr>
-                        <th scope="col"></th>
-                        <th scope="col">Hp</th>
-                        <th scope="col"> 0</th>
+                        <th scope="col">pH</th>
+                        <th scope="col">{{pH3}}</th>
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">temperature</th>
-                        <th scope="col"> 0 ํC</th>
+                        <th scope="col">Temperature</th>
+                        <th scope="col">{{Temp3}}  ํC</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col" d>Ec</th>
-                        <th scope="col">0</th>
+                        <th scope="col" d>EC</th>
+                        <th scope="col">{{EC3}}</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">Water</th>
-                        <th scope="col">0%</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">{{Time3}}</th>
                       </tr>
                     </tbody>
                   </table>
