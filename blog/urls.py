@@ -10,5 +10,7 @@ urlpatterns = [
     path('Getstarto/', views.Getstarto, name='Getstarto'),
     path('Setting01/', views.Setting01, name='Setting01'),
     path('Setting02/', views.Setting02, name='Setting02'),
+
+    
     # path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
 ]

@@ -58,7 +58,8 @@ def Cost(request):
 def How_to_care(request):
     return render(request, 'blog/How_to_care.html')
 def Control01(request):
-    data = database.child('Suggest').child('Asparagus').child('EC').get().val()
+    data = database.child('Data').get().val()
+    # data = database.child('Suggest').child('Asparagus').child('EC').get().val()
     return render(request, 'blog/Control01.html',{'d':data})
 def Control02(request):
     return render(request, 'blog/Control02.html')
