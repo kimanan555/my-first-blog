@@ -90,12 +90,14 @@
                                 </tr>
                             </thead>
                             <thead>
+                            <form method="post">
+                            {% csrf_token %}
                                 <tr>
 
 
                                     <th scope="col"></th>
                                     <th scope="col">pH</th>
-                                    <th scope="col"><input type="number" name="quantity" min="0" max="5" scope="col"></th>
+                                    <th scope="col"><input type="number" name="pH" min="0" max="5" scope="col" id='pH'></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -103,20 +105,22 @@
 
                                     <th scope="col"></th>
                                     <th scope="col">temperature</th>
-                                    <th scope="col"> <input type="number" name="quantity" min="0" max="100" scope="col">°C</th>
+                                    <th scope="col"> <input type="number" name="temp" min="0" max="100" scope="col" id='temp'>°C</th>
                                 </tr>
                                 <tr>
 
                                     <th scope="col"></th>
                                     <th scope="col" d>Ec</th>
-                                    <th scope="col"><input type="number" name="quantity" min="0" max="5" scope="col"></th>
+                                    <th scope="col"><input type="number" name="Ec" min="0" max="5" scope="col" id='Ec'></th>
                                 </tr>
                                 <tr>
 
                                     <th scope="col"></th>
                                     <th scope="col">Water</th>
-                                    <th scope="col"><input type="number" name="quantity" min="0" max="100" scope="col">%</th>
+                                    <th scope="col"><input type="number" name="Water" min="0" max="100" scope="col" id='Water'>%</th>
                                 </tr>
+                                <button type='submit'>Submit</button>
+                                </form>
                             </tbody
                         </table>
 

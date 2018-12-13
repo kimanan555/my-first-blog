@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Post
-from .forms import PostForm
+from .forms import PostForm, dtForm
 import pyrebase
 
 config = {
@@ -68,7 +68,20 @@ def Getstarto(request):
 def Setting01(request):
     return render(request, 'blog/Setting01.html')
 def Setting02(request):
-    data = database.child('Suggest').child('Asparagus').child('EC').get().val()
-    return render(request, 'blog/Setting02.html',{'d':data})
+    if request.method=="POST":
+          form=dtForm(request.POST)
+          data = database.child('Suggest').child('Asparagus').child('EC').get().val()
+          if form.is_valid():
+                print('valid')
+                form.save()
+
+                return render(request, 'blog/Setting02.html',{'form':form})
+          # else:
+                # print('not valid')
+                # form=dtForm()
+                # return render(request, 'blog/Setting02.html',{'form':form})
+    else:
+          form=dtForm()
+          return render(request, 'blog/Setting02.html',{'form':form})
 
 # data = database.child('Asparagus').child('EC').get().val()
