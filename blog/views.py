@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import Post
+from .models import dt
 from .forms import PostForm, dtForm
 import pyrebase
+from django.db.models import Max
 
 config = {
     'apiKey': "AIzaSyBKvXiRu3CmG7uIpEcJFWUhcYzGe9zN0ao",
@@ -74,7 +75,13 @@ def Setting02(request):
           if form.is_valid():
                 print('valid')
                 form.save()
-
+                posts = dt.objects.order_by('num_id')
+                postss=dt.objects.order_by('-id')[0]
+            #     print(post[-1].pH)
+            #     for post in postss:
+                print(postss.pH)
+            #     print(posts[1])
+            #     print(posts)
                 return render(request, 'blog/Setting02.html',{'form':form})
           # else:
                 # print('not valid')
