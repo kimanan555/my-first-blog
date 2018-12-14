@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+<<<<<<< HEAD
 from .models import dt
 from .forms import PostForm, dtForm
 # import pyrebase# config = {
@@ -7,6 +8,15 @@ from .forms import PostForm, dtForm
 # #     'authDoma# config = {
 # #     'apiKey': "AI
 # from django.db.models import Max
+=======
+from .models import dt, dt2
+from .forms import PostForm, dtForm, dtForm2
+import pyrebase# config = {
+#     'apiKey': "AIzaSyBKvXiRu3CmG7uIpEcJFWUhcYzGe9zN0ao",
+#     'authDoma# config = {
+#     'apiKey': "AI
+from django.db.models import Max
+>>>>>>> b410e528941ac8145931608063b25a8f8495ff72
 
 # config = {
 #     'apiKey': "AIzaSyBKvXiRu3CmG7uIpEcJFWUhcYzGe9zN0ao",
@@ -57,32 +67,99 @@ from .forms import PostForm, dtForm
 def Main(request):
     return render(request, 'blog/Main.html')
 def Cost(request):
-    data = database.child('Asparagus').child('EC').get().val()
-    return render(request, 'blog/Cost.html',{'d':data})
+#     EC1 = database.child('Suggest').child('Asparagus').child('EC').get().val()
+    return render(request, 'blog/Cost.html')
 def How_to_care(request):
-    return render(request, 'blog/How_to_care.html')
+    EC1 = database.child('Suggest').child('Asparagus').child('EC').get().val()
+    Temp1 = database.child('Suggest').child('Asparagus').child('Temp').get().val()
+    Time1 = int(database.child('Suggest').child('Asparagus').child('Time').get().val())
+    pH1 = database.child('Suggest').child('Asparagus').child('pH').get().val()
+    EC2 = database.child('Suggest').child('Broccoli').child('EC').get().val()
+    Temp2 = database.child('Suggest').child('Broccoli').child('Temp').get().val()
+    Time2 = int(database.child('Suggest').child('Broccoli').child('Time').get().val())
+    pH2 = database.child('Suggest').child('Broccoli').child('pH').get().val()
+    EC3 = database.child('Suggest').child('Grand Rapids Lettuce').child('EC').get().val()
+    Temp3 = database.child('Suggest').child('Grand Rapids Lettuce').child('Temp').get().val()
+    Time3 = int(database.child('Suggest').child('Grand Rapids Lettuce').child('Time').get().val())
+    pH3 = database.child('Suggest').child('Grand Rapids Lettuce').child('pH').get().val()
+    form={
+          'EC1':EC1, 'Temp1':Temp1, 'Time1':Time1 ,'pH1':pH1,
+          'EC2':EC2, 'Temp2':Temp2, 'Time2':Time2 ,'pH2':pH2,
+          'EC3':EC3, 'Temp3':Temp3, 'Time3':Time3 ,'pH3':pH3
+    }
+    return render(request, 'blog/How_to_care.html',form)
 def Control01(request):
+<<<<<<< HEAD
       # data = database.child('Data').get().val()
       # data = database.child('Suggest').child('Asparagus').child('EC').get().val()
       return render(request, 'blog/Control01.html')
+=======
+    EC = database.child('Field').child('Field 1').child('EC').get().val()
+    Moisture = database.child('Field').child('Field 1').child('Moisture').get().val()
+    Temp = database.child('Field').child('Field 1').child('Temp').get().val()
+    Unit_Electric = database.child('Field').child('Field 1').child('Unit Electric').get().val()
+    Unit_Water = database.child('Field').child('Field 1').child('Unit Water').get().val()
+    Velocity = database.child('Field').child('Field 1').child('Velocity').get().val()
+    pH = database.child('Field').child('Field 1').child('pH').get().val()
+    form={
+          'EC':EC, 'Moisture':Moisture, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
+          'Unit_Water':Unit_Water, 'Velocity':Velocity, 'pH':pH
+    }
+    return render(request, 'blog/Control01.html',form)
+>>>>>>> b410e528941ac8145931608063b25a8f8495ff72
 def Control02(request):
-    return render(request, 'blog/Control02.html')
+    EC = database.child('Field').child('Field 2').child('EC').get().val()
+    Moisture = database.child('Field').child('Field 2').child('Moisture').get().val()
+    Temp = database.child('Field').child('Field 2').child('Temp').get().val()
+    Unit_Electric = database.child('Field').child('Field 2').child('Unit Electric').get().val()
+    Unit_Water = database.child('Field').child('Field 2').child('Unit Water').get().val()
+    Velocity = database.child('Field').child('Field 2').child('Velocity').get().val()
+    pH = database.child('Field').child('Field 2').child('pH').get().val()
+    form={
+          'EC':EC, 'Moisture':Moisture, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
+          'Unit_Water':Unit_Water, 'Velocity':Velocity, 'pH':pH
+    }
+    return render(request, 'blog/Control02.html',form)
 def Getstarto(request):
     return render(request, 'blog/Getstarto.html')
 def Setting01(request):
-    return render(request, 'blog/Setting01.html')
-def Setting02(request):
     if request.method=="POST":
           form=dtForm(request.POST)
+<<<<<<< HEAD
       #     data = database.child('Suggest').child('Asparagus').child('EC').get().val()
+=======
+>>>>>>> b410e528941ac8145931608063b25a8f8495ff72
           if form.is_valid():
+                form.save()
                 posts=dt.objects.order_by('-id')[0]
-                print(posts.pH)
+                database.child("Input Field").child("Field 1").child("EC").set(posts.Ec)
+                database.child("Input Field").child("Field 1").child("Temp").set(posts.temp)
+                database.child("Input Field").child("Field 1").child("pH").set(posts.pH)
+                database.child("Input Field").child("Field 1").child("Water").set(posts.Water)
+                return render(request, 'blog/Control01.html',{'form':form})
+          else:
+                print('not valid')
+                form=dtForm()
+                return render(request, 'blog/Setting01.html',{'form':form})
+    else:
+          form=dtForm()
+          return render(request, 'blog/Setting01.html',{'form':form})
+
+def Setting02(request):
+    if request.method=="POST":
+          form=dtForm2(request.POST)
+          if form.is_valid():
+                form.save()
+                posts=dt2.objects.order_by('-id')[0]
+                database.child("Input Field").child("Field 2").child("EC").set(posts.Ec)
+                database.child("Input Field").child("Field 2").child("Temp").set(posts.temp)
+                database.child("Input Field").child("Field 2").child("pH").set(posts.pH)
+                database.child("Input Field").child("Field 2").child("Water").set(posts.Water)
+                return render(request, 'blog/Control02.html',{'form':form})
+          else:
+                print('not valid')
+                form=dtForm2()
                 return render(request, 'blog/Setting02.html',{'form':form})
-          # else:
-                # print('not valid')
-                # form=dtForm()
-                # return render(request, 'blog/Setting02.html',{'form':form})
     else:
           form=dtForm()
           return render(request, 'blog/Setting02.html',{'form':form})

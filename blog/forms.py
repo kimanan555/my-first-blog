@@ -9,10 +9,10 @@ class PostForm(forms.ModelForm):
         fields = ('title', 'text',)
 
 class dtForm(forms.ModelForm):
-    """pH=forms.IntegerField()
-    temp=forms.IntegerField()
-    Ec=forms.IntegerField()
-    Water=forms.IntegerField()"""
+    """pH=forms.DecimalField()
+    temp=forms.DecimalField()
+    Ec=forms.DecimalField()
+    Water=forms.DecimalField()"""
     class Meta:
         model = dt
         fields = (
