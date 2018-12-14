@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hydroponic Farm-Setting01</title>
+    <title>Hydroponic Farm-Setting02</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -66,7 +66,7 @@
                         <img src="{% static 'img/83408-200.png' %}" width="380" height="380">
                         <br /> <br />
                         &nbsp; &nbsp; &nbsp;
-                        <button>
+                        <!-- <button>
                             <a href="#">
                                 <font color="#000000">OK</font>
                             </a>
@@ -75,13 +75,16 @@
                             <a href="#">
                                 <font color="#000000">Cancel</font>
                             </a>
-                        </button>
+                        </button> -->
 
                         <br /> <br />
 
                     </div>
                     <div class="col-6">
+                        <form method="post">
+                        {% csrf_token %}
                         <table class="table table-borderless">
+                        <form method="post">
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
@@ -90,36 +93,43 @@
                                 </tr>
                             </thead>
                             <thead>
+                            
                                 <tr>
-
-
                                     <th scope="col"></th>
                                     <th scope="col">pH</th>
-                                    <th scope="col"><input type="number" name="quantity" min="0" max="5" scope="col"></th>
+                                    <th scope="col"><input type="number" name="pH" min="0" max="7" scope="col" id='pH'></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-
                                     <th scope="col"></th>
                                     <th scope="col">temperature</th>
-                                    <th scope="col"> <input type="number" name="quantity" min="0" max="100" scope="col">°C</th>
+                                    <th scope="col"> <input type="number" name="temp" min="0" max="100" scope="col" id='temp'>°C</th>
                                 </tr>
                                 <tr>
 
                                     <th scope="col"></th>
                                     <th scope="col" d>Ec</th>
-                                    <th scope="col"><input type="number" name="quantity" min="0" max="5" scope="col"></th>
+                                    <th scope="col"><input type="number" name="Ec" min="0" max="5" scope="col" id='Ec'></th>
                                 </tr>
                                 <tr>
 
                                     <th scope="col"></th>
                                     <th scope="col">Water</th>
-                                    <th scope="col"><input type="number" name="quantity" min="0" max="100" scope="col">%</th>
-                                </tr>
-                            </tbody
+                                    <th scope="col"><input type="number" name="Water" min="0" max="100" scope="col" id='Water'>%</th>
+                                </tr>                   
+                                </tbody>
                         </table>
-
+                        <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-8 ">
+                            <div class="row">
+                                    <div class="col-5 "><button type='submit'>Submit</button></div>
+                                    <div class="col-4 "><button>Cancel</button></div>
+                            </div>
+                        </div>
+                        </div>
+                    </form>
                     </div>
 
                 </div>

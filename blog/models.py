@@ -16,3 +16,15 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class dt(models.Model):
+    pH=models.IntegerField(default=0)
+    temp=models.IntegerField(default=0)
+    Ec=models.IntegerField(default=0)
+    Water=models.IntegerField(default=0)
+
+class dt2(models.Model):
+    pH=models.IntegerField(default=0)
+    temp=models.IntegerField(default=0)
+    Ec=models.IntegerField(default=0)
+    Water=models.IntegerField(default=0)
