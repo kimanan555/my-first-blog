@@ -1,14 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-<<<<<<< HEAD
-from .models import dt
-from .forms import PostForm, dtForm
-# import pyrebase# config = {
-# #     'apiKey': "AIzaSyBKvXiRu3CmG7uIpEcJFWUhcYzGe9zN0ao",
-# #     'authDoma# config = {
-# #     'apiKey': "AI
-# from django.db.models import Max
-=======
 from .models import dt, dt2
 from .forms import PostForm, dtForm, dtForm2
 import pyrebase# config = {
@@ -16,7 +7,6 @@ import pyrebase# config = {
 #     'authDoma# config = {
 #     'apiKey': "AI
 from django.db.models import Max
->>>>>>> b410e528941ac8145931608063b25a8f8495ff72
 
 # config = {
 #     'apiKey': "AIzaSyBKvXiRu3CmG7uIpEcJFWUhcYzGe9zN0ao",
@@ -89,11 +79,6 @@ def How_to_care(request):
     }
     return render(request, 'blog/How_to_care.html',form)
 def Control01(request):
-<<<<<<< HEAD
-      # data = database.child('Data').get().val()
-      # data = database.child('Suggest').child('Asparagus').child('EC').get().val()
-      return render(request, 'blog/Control01.html')
-=======
     EC = database.child('Field').child('Field 1').child('EC').get().val()
     Moisture = database.child('Field').child('Field 1').child('Moisture').get().val()
     Temp = database.child('Field').child('Field 1').child('Temp').get().val()
@@ -106,7 +91,6 @@ def Control01(request):
           'Unit_Water':Unit_Water, 'Velocity':Velocity, 'pH':pH
     }
     return render(request, 'blog/Control01.html',form)
->>>>>>> b410e528941ac8145931608063b25a8f8495ff72
 def Control02(request):
     EC = database.child('Field').child('Field 2').child('EC').get().val()
     Moisture = database.child('Field').child('Field 2').child('Moisture').get().val()
@@ -125,10 +109,6 @@ def Getstarto(request):
 def Setting01(request):
     if request.method=="POST":
           form=dtForm(request.POST)
-<<<<<<< HEAD
-      #     data = database.child('Suggest').child('Asparagus').child('EC').get().val()
-=======
->>>>>>> b410e528941ac8145931608063b25a8f8495ff72
           if form.is_valid():
                 form.save()
                 posts=dt.objects.order_by('-id')[0]
