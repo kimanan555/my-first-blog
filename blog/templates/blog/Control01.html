@@ -61,57 +61,98 @@
     <div class="container-fluid">
       <div class="carousel-item active ">
         <div class="row">
-          <div class="col-6">
-              <h3>1</h3>
-              <div class="textice">Vegetable Name</div>
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; 
+          <div class="col-6 border-right border-secondary ">
+              <h5></h1>Farm01: Vegetable Name</h5>
+              <!-- <div class="textice">Vegetable Name</div> -->
+              <br/>  <br /> 
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
             <img src="{% static 'img/83408-200.png' %} " width="380"  height="380">
-            <br /> <br /> 
-            &nbsp; &nbsp; &nbsp; 
-            <button>
-            <a href="{% url 'Setting01' %}"><font color="#000000">setting</font></a>
-          </button>
-            <br /> <br /> 
+ 
+            
+           {% if 1 == 1 %}
+            <div class="btn-group btn-group-toggle" data-toggle="buttons" >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="btn btn-success active">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Auto
+                </label>
+                <label class="btn btn-success">
+                  <input type="radio" name="options" id="option2" autocomplete="off"> Manual
+                </label>
+              </div>
+            {% else %}
+            <div class="btn-group btn-group-toggle" data-toggle="buttons" >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="btn btn-success ">
+                  <input type="radio" name="options" id="option1" autocomplete="off" checked> Auto
+                </label>
+                <label class="btn btn-success active">
+                  <input type="radio" name="options" id="option2" autocomplete="off"> Manual
+                </label>
+              </div>
+            {% endif%}
+
+
+              <br /> <br/>
           </div>
-          <div class="col-6">
+          <div class="col-6 "  >
               <table class="table table-borderless">
-                  <br /> <br /> 
+                  <br /> 
                   <thead>
                     <tr>
                       <th scope="col"></th>
                       <th scope="col"></th>
                       <th scope="col"></th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
+                  <thead>
+                      <tr>
+                          <th scope="col"></th>
+                          <th scope="col" d>EC</th>
+                          <th scope="col">{{d}}</th>
+                          <th scope="col"></th>
+                        </tr>
+                    </thead>
                   <thead>
                     <tr>
                       <th scope="col"></th>
                       <th scope="col">pH</th>
                       <th scope="col"> 0</th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
+                      <th scope="col"></th>
+                      <th scope="col">Temperature</th>
+                      <th scope="col"> 0</th>
+                      <th scope="col">°C</th>
+                    </tr>
+                    
+                    <tr>
 
                       <th scope="col"></th>
-                      <th scope="col">temperature</th>
-                      <th scope="col"> 0°C</th>
+                      <th scope="col">Humidity</th>
+                      <th scope="col">0</th>
+                      <th scope="col">%</th>
                     </tr>
                     <tr>
 
                       <th scope="col"></th>
-                      <th scope="col" d>Ec</th>
-                      <th scope="col">{{d}}</th>
-                    </tr>
-                    <tr>
-
+                      <th scope="col">Electricity bil</th>
                       <th scope="col"></th>
-                      <th scope="col">Water</th>
-                      <th scope="col">0%</th>
+                      <th scope="col">Unit</th>
                     </tr>
                   </tbody>
                 </table>
-            
+               
+                <div class="row">
+                  <div class="col-4">&nbsp;&nbsp;&nbsp;&nbsp;<button>
+                    <a href="{% url 'Setting01' %}"><font color="#000000">setting</font></a></button></div>
+                  <div class="col-8 ">
+                
+                  </div>
+                  </div>
           </div>
         
         </div>
