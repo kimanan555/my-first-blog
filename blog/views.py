@@ -57,8 +57,8 @@ auth = firebase.auth()
 def Main(request):
     return render(request, 'blog/Main.html')
 def Cost(request):
-    data = database.child('Asparagus').child('EC').get().val()
-    return render(request, 'blog/Cost.html',{'d':data})
+#     EC1 = database.child('Suggest').child('Asparagus').child('EC').get().val()
+    return render(request, 'blog/Cost.html')
 def How_to_care(request):
     EC1 = database.child('Suggest').child('Asparagus').child('EC').get().val()
     Temp1 = database.child('Suggest').child('Asparagus').child('Temp').get().val()
