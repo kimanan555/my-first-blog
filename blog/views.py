@@ -79,11 +79,31 @@ def How_to_care(request):
     }
     return render(request, 'blog/How_to_care.html',form)
 def Control01(request):
-    data = database.child('Data').get().val()
-    # data = database.child('Suggest').child('Asparagus').child('EC').get().val()
-    return render(request, 'blog/Control01.html',{'d':data})
+    EC = database.child('Field').child('Field 1').child('EC').get().val()
+    Moisture = database.child('Field').child('Field 1').child('Moisture').get().val()
+    Temp = database.child('Field').child('Field 1').child('Temp').get().val()
+    Unit_Electric = database.child('Field').child('Field 1').child('Unit Electric').get().val()
+    Unit_Water = database.child('Field').child('Field 1').child('Unit Water').get().val()
+    Velocity = database.child('Field').child('Field 1').child('Velocity').get().val()
+    pH = database.child('Field').child('Field 1').child('pH').get().val()
+    form={
+          'EC':EC, 'Moisture':Moisture, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
+          'Unit_Water':Unit_Water, 'Velocity':Velocity, 'pH':pH
+    }
+    return render(request, 'blog/Control01.html',form)
 def Control02(request):
-    return render(request, 'blog/Control02.html')
+    EC = database.child('Field').child('Field 2').child('EC').get().val()
+    Moisture = database.child('Field').child('Field 2').child('Moisture').get().val()
+    Temp = database.child('Field').child('Field 2').child('Temp').get().val()
+    Unit_Electric = database.child('Field').child('Field 2').child('Unit Electric').get().val()
+    Unit_Water = database.child('Field').child('Field 2').child('Unit Water').get().val()
+    Velocity = database.child('Field').child('Field 2').child('Velocity').get().val()
+    pH = database.child('Field').child('Field 2').child('pH').get().val()
+    form={
+          'EC':EC, 'Moisture':Moisture, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
+          'Unit_Water':Unit_Water, 'Velocity':Velocity, 'pH':pH
+    }
+    return render(request, 'blog/Control02.html',form)
 def Getstarto(request):
     return render(request, 'blog/Getstarto.html')
 def Setting01(request):
