@@ -54,6 +54,7 @@
 
   <header >
     <div class="container-fluid">
+
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -64,13 +65,13 @@
           <!-- Slide One - Set the background image for this slide in the line below -->
           <div class="carousel-item active">
             <div class="carousel">
-              <div class="textice">How to Care</div>
+              <div class="textice">How to Care:Asparagus</div>
               <div class="row">
                 <div class="col-5">
-                <form>
                   <table class="table table-borderless">
                     <thead>
                       <tr>
+                        <th scope="col"></th>
                         <th scope="col"></th>
                         <th scope="col"></th>
                         <th scope="col"></th>
@@ -80,7 +81,8 @@
                       <tr>
                         <th scope="col"></th>
                         <th scope="col">pH</th>
-                        <th scope="col">{{pH1}}</th>
+                        <th scope="col"> 0</th>
+                        <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -88,27 +90,29 @@
 
                         <th scope="col"></th>
                         <th scope="col">Temperature</th>
-                        <th scope="col">{{Temp1}}  ํC</th>
+                        <th scope="col"> 0</th>
+                        <th scope="col"> ํC</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
                         <th scope="col" d>EC</th>
-                        <th scope="col">{{EC1}}</th>
+                        <th scope="col">0</th>
+                        <th scope="col"></th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">Time</th>
-                        <th scope="col">{{Time1}}Day</th>
+                        <th scope="col">Humidity</th>
+                        <th scope="col">0</th>
+                        <th scope="col">%</th>
                       </tr>
                     </tbody>
                   </table>
                 </div>
-                </form>
                 <div class="col-7 ">
                   <div class="text-center">
-                    <img class="align-self-end mr-0" src="{% static 'img/ผัก01.png' %}" alt="Generic placeholder image ">
+                    <img class="align-self-end mr-0" src="{% static 'img/Asparagus.png' %}" alt="Generic placeholder image ">
 
                   </div>
 
@@ -120,15 +124,24 @@
           <!-- Slide Two - Set the background image for this slide in the line below -->
           <div class="carousel-item">
             <div class="carousel">
-              <div class="textice">How to Care</div>
+              <div class="textice">How to Care:Broccoli</div>
               <div class="row">
                 <div class="col-5">
                   <table class="table table-borderless">
                     <thead>
                       <tr>
                         <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
                         <th scope="col">pH</th>
-                        <th scope="col">{{pH2}}</th>
+                        <th scope="col"> 0</th>
+                        <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -136,26 +149,30 @@
 
                         <th scope="col"></th>
                         <th scope="col">Temperature</th>
-                        <th scope="col">{{Temp2}}  ํC</th>
+                        <th scope="col"> 0 </th>
+                        <th scope="col">ํC</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col" d>EC</th>
-                        <th scope="col">{{EC2}}</th>
+                        <th scope="col" >EC</th>
+                        <th scope="col">0</th>
+                        <th scope="col"></th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">Time</th>
-                        <th scope="col">{{Time2}}Day</th>
+                        <th scope="col">Humidity</th>
+                        <th scope="col">0</th>
+                        <th scope="col">%</th>
                       </tr>
                     </tbody>
                   </table>
                 </div>
                 <div class="col-7 ">
                   <div class="text-center">
-                    <img class="align-self-end mr-0" src="{% static 'img/ผัก02.png' %}" alt="Generic placeholder image ">
+                    
+                    <img class="align-self-end mr-0" src="{% static 'img/Broccoli.png' %}" alt="Generic placeholder image ">
 
                   </div>
 
@@ -167,15 +184,24 @@
           <!-- Slide Three - Set the background image for this slide in the line below -->
           <div class="carousel-item">
             <div class="carousel">
-              <div class="textice">How to Care</div>
+              <div class="textice">How to Care: Red Oak Lettuce</div>
               <div class="row">
                 <div class="col-5">
                   <table class="table table-borderless">
                     <thead>
                       <tr>
                         <th scope="col"></th>
-                        <th scope="col">pH</th>
-                        <th scope="col">{{pH3}}</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                      </tr>
+                    </thead>
+                    <thead>
+                      <tr>
+                        <th scope="col"></th>
+                        <th scope="col">Hp</th>
+                        <th scope="col"> 0</th>
+                        <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -183,26 +209,29 @@
 
                         <th scope="col"></th>
                         <th scope="col">Temperature</th>
-                        <th scope="col">{{Temp3}}  ํC</th>
+                        <th scope="col"> 0</th>
+                        <th scope="col"> ํC</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
                         <th scope="col" d>EC</th>
-                        <th scope="col">{{EC3}}</th>
+                        <th scope="col">0</th>
+                        <th scope="col"></th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">Time</th>
-                        <th scope="col">{{Time3}}Day</th>
+                        <th scope="col">Humidity</th>
+                        <th scope="col">0</th>
+                        <th scope="col">%</th>
                       </tr>
                     </tbody>
                   </table>
                 </div>
                 <div class="col-7 ">
                   <div class="text-center">
-                    <img class="align-self-end mr-0" src="{% static 'img/ผัก03.png' %}" alt="Generic placeholder image ">
+                    <img class="align-self-end mr-0" src="{% static 'img/Red_Oak_Lettuce.png' %}" alt="Generic placeholder image ">
 
                   </div>
 

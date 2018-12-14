@@ -60,24 +60,18 @@
         <div class="container-fluid">
             <div class="carousel-item active ">
                 <div class="row">
-                    <div class="col-6">
-                        <h3>2</h3>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <img src="{% static 'img/83408-200.png' %}" width="380" height="380">
-                        <br /> <br />
-                        &nbsp; &nbsp; &nbsp;
-                        <!-- <button>
-                            <a href="#">
-                                <font color="#000000">OK</font>
-                            </a>
-                        </button>&nbsp;
-                        <button>
-                            <a href="#">
-                                <font color="#000000">Cancel</font>
-                            </a>
+                    <div class="col-6 border-right border-secondary">
+                            <h5></h1>Setting:Farm02</h5>
+                            <!-- <div class="textice">Vegetable Name</div> -->
+                            <br/>  <br /> 
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
+                          <img src="{% static 'img/83408-200.png' %} " width="380"  height="380">
+                          <br /> <br /> 
+                          &nbsp; &nbsp; &nbsp; 
+                          <!-- <button>
+                          <a href="{% url 'Setting01' %}"><font color="#000000">setting</font></a>
                         </button> -->
-
-                        <br /> <br />
+                          <br /> <br /> 
 
                     </div>
                     <div class="col-6">
@@ -85,38 +79,47 @@
                         {% csrf_token %}
                         <table class="table table-borderless">
                         <form method="post">
+                            <br /> <br /> 
                             <thead>
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
+                            <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">EC</th>
+                                        <th scope="col"><input type="number" name="Ec" min="0" max="100" scope="col" id='Ec'value="0"></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
                             <thead>
                             
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">pH</th>
-                                    <th scope="col"><input type="number" step="0.1" name="pH" min="0" max="7" scope="col" id='pH'></th>
+                                    <th scope="col"><input type="number" name="pH" min="0" max="100" scope="col" id='pH'value="0"></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
+
                                     <th scope="col"></th>
-                                    <th scope="col">temperature</th>
-                                    <th scope="col"> <input type="number" step="0.1" name="temp" min="0" max="100" scope="col" id='temp'>°C</th>
+                                    <th scope="col">Temperature</th>
+                                    <th scope="col"> <input type="number" name="temp" min="0" max="100" scope="col" id='temp'value="0"></th>
+                                    <th scope="col">°C</th>
                                 </tr>
+                                
                                 <tr>
 
                                     <th scope="col"></th>
-                                    <th scope="col" d>Ec</th>
-                                    <th scope="col"><input type="number" step="0.1" name="Ec" min="0" max="5" scope="col" id='Ec'></th>
-                                </tr>
-                                <tr>
-
-                                    <th scope="col"></th>
-                                    <th scope="col">Water</th>
-                                    <th scope="col"><input type="number" step="0.1" name="Water" min="0" max="100" scope="col" id='Water'>%</th>
+                                    <th scope="col">Humidity</th>
+                                    <th scope="col"><input type="number" name="Water" min="0" max="100" scope="col" id='Water'value="0"></th>
+                                    <th scope="col">%</th>
                                 </tr>                   
                                 </tbody>
                         </table>
@@ -124,8 +127,9 @@
                         <div class="col-4"></div>
                         <div class="col-8 ">
                             <div class="row">
-                                    <div class="col-5 "><button type='submit'>Submit</button></div>
-                                    <div class="col-4 "><button >Cancel</button></div>
+                                    <div class="col-5 "><button type='submit' ><a  href="{% url 'Control02' %}"><font color="#000000">Submit</font></a></button></div>
+                                    <div class="col-4 "><button ><a  href="{% url 'Control02' %}"><font color="#000000">Cancel</font></a></button></div>
+                            
                             </div>
                         </div>
                         </div>

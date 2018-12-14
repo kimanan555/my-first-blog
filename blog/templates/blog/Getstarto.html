@@ -30,7 +30,7 @@
 
 <body class="masthead ">
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
       <div class="container">
         <a class="navbar-brand js-scroll-trigger" href="{% url 'Main' %}">HOME</a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,18 +59,102 @@
       <div class="container">
         <div class="row ">
           <div class="col">
+            {% if 1 == 1 %}
             <button>
               <p align = 'left'>1</p>
-              <a href="{% url 'Control01' %}" class="button1 ">
-                
+              <a href="{% url 'Control01' %}" class="button1 "> 
               </a>
             </button>
+            {% else %}
+            <!-- Button trigger modal -->
+            <button type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                <p align = 'left'>1</p>
+                <a class="button1"></a>
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Choose your Vegetable </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-block my-3">
+                            <div class="custom-control custom-radio">
+                              <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                              <label class="custom-control-label" for="credit">Asparagus</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                              <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                              <label class="custom-control-label" for="debit">Broccoli</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                              <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                              <label class="custom-control-label" for="paypal">Grand Rapids Lettuce</label>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="button" class="btn btn-primary" ><a href="{% url 'Control01' %}">OK</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endif %}
           </div>
           <div class="col-4">
-            <button>
-              <p align = 'left'>2</p>
-              <a href="{% url 'Control02' %}" class="button2 "></a>
-            </button>
+              {% if 1 == 1 %}
+              <button>
+                <p align = 'left'>2</p>
+                <a href="{% url 'Control02' %}" class="button1 "> 
+                </a>
+              </button>
+              {% else %}
+              <!-- Button trigger modal -->
+              <button type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                  <p align = 'left'>2</p>
+                  <a class="button1"></a>
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Choose your Vegetable </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                          <div class="d-block my-3">
+                              <div class="custom-control custom-radio">
+                                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                                <label class="custom-control-label" for="credit">Asparagus</label>
+                              </div>
+                              <div class="custom-control custom-radio">
+                                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                                <label class="custom-control-label" for="debit">Broccoli</label>
+                              </div>
+                              <div class="custom-control custom-radio">
+                                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                                <label class="custom-control-label" for="paypal">Grand Rapids Lettuce</label>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ><a href="{% url 'Control02' %}">OK</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
           </div>
         </div>
       </div>
