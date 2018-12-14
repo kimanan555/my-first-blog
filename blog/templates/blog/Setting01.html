@@ -92,7 +92,7 @@
                                     <tr>
                                         <th scope="col"></th>
                                         <th scope="col">EC</th>
-                                        <th scope="col"><input type="number" name="Ec" min="0" max="100" scope="col" id='Ec'value="0"></th>
+                                        <th scope="col"><input type="number" step="0.1" name="Ec" min="0" max="100" scope="col" id='Ec'value="0" required></th>
                                         <th scope="col"></th>
                                     </tr>
                                 </thead>
@@ -101,7 +101,7 @@
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">pH</th>
-                                    <th scope="col"><input type="number" name="pH" min="0" max="100" scope="col" id='pH'value="0"></th>
+                                    <th scope="col"><input type="number" name="pH" step="0.1" min="0" max="100" scope="col" id='pH'value="0" required></th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
@@ -110,7 +110,7 @@
 
                                     <th scope="col"></th>
                                     <th scope="col">Temperature</th>
-                                    <th scope="col"> <input type="number" name="temp" min="0" max="100" scope="col" id='temp'value="0"></th>
+                                    <th scope="col"> <input type="number" name="temp" step="0.1" min="0" max="100" scope="col" id='temp'value="0" required ></th>
                                     <th scope="col">°C</th>
                                 </tr>
                                 
@@ -118,7 +118,7 @@
 
                                     <th scope="col"></th>
                                     <th scope="col">Humidity</th>
-                                    <th scope="col"><input type="number" name="Water" min="0" max="100" scope="col" id='Water' value="0"></th>
+                                    <th scope="col"><input type="number" name="Water" step="0.1" min="0" max="100" scope="col" id='Water' value="0" required></th>
                                     <th scope="col">%</th>
                                 </tr>                   
                                 </tbody>
@@ -127,13 +127,8 @@
                         <div class="col-4"></div>
                         <div class="col-8 ">
                             <div class="row">
-<<<<<<< HEAD
-                                    <div class="col-5 "><button type='submit'>Submit</button></div>
-                                    <div class="col-4 " ><button>Cancel</button></div>
-=======
                                     <div class="col-5 "><button type='submit' ><a  href="{% url 'Control01' %}"><font color="#000000">Submit</font></a></button></div>
                                     <div class="col-4 "><button ><a  href="{% url 'Control01' %}"><font color="#000000">Cancel</font></a></button></div>
->>>>>>> 5915618f47236f4107160cdada1df8b5cfe6b5b4
                             
                             </div>
                         </div>

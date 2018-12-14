@@ -1,0 +1,87 @@
+{% extends 'blog/Getstarto.html' %}
+
+{% block content %}
+          <form method="post">
+          {% csrf_token %}
+  <!-- Button trigger modal -->
+            <button type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                <p align = 'left'>1</p>
+                <a class="button1"></a>
+              </button>
+              
+              <!-- Modal -->
+              <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLongTitle">Choose your Vegetable </h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-block my-3">
+                            <div class="custom-control custom-radio">
+                              <input id="Asparagus" name="Asparagus" type="radio" class="custom-control-input">
+                              <label class="custom-control-label" for="Asparagus">Asparagus</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                              <input id="Broccoli" name="Broccoli" type="radio" class="custom-control-input" >
+                              <label class="custom-control-label" for="Broccoli">Broccoli</label>
+                            </div>
+                            <div class="custom-control custom-radio">
+                              <input id="Red_Oak_Lettuce" name="Red_Oak_Lettuce" type="radio" class="custom-control-input" >
+                              <label class="custom-control-label" for="Red_Oak_Lettuce">Grand Rapids Lettuce</label>
+                            </div>
+                          </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="submit" class="btn btn-primary" ><a>OK</a></button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+           </form>
+             </div>
+          <div class="col-4">
+          <!-- Button trigger modal -->
+              <button type="button" data-toggle="modal" data-target="#exampleModalCenter">
+                  <p align = 'left'>2</p>
+                  <a class="button1"></a>
+                </button>
+                
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                  <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Choose your Vegetable </h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                          <div class="d-block my-3">
+                              <div class="custom-control custom-radio">
+                                <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                                <label class="custom-control-label" for="credit">Asparagus</label>
+                              </div>
+                              <div class="custom-control custom-radio">
+                                <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                                <label class="custom-control-label" for="debit">Broccoli</label>
+                              </div>
+                              <div class="custom-control custom-radio">
+                                <input id="paypal" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                                <label class="custom-control-label" for="paypal">Grand Rapids Lettuce</label>
+                              </div>
+                            </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" ><a href="{% url 'Control02' %}">OK</a></button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+{% endblock %}

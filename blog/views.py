@@ -1,11 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import dt, dt2
-from .forms import PostForm, dtForm, dtForm2
-import pyrebase# config = {
-#     'apiKey': "AIzaSyBKvXiRu3CmG7uIpEcJFWUhcYzGe9zN0ao",
-#     'authDoma# config = {
-#     'apiKey': "AI
+from .models import dt, dt2, vegetable
+from .forms import PostForm, dtForm, dtForm2, vegetableform
+import pyrebase
 from django.db.models import Max
 
 config = {
@@ -105,7 +102,32 @@ def Control02(request):
     }
     return render(request, 'blog/Control02.html',form)
 def Getstarto(request):
-    return render(request, 'blog/Getstarto.html')
+      Power1 = database.child('Input Field').child('Field 1').child('Power').get().val()
+      return render(request, 'blog/Getstarto.html',{'Power':Power1})
+def Power00(request):
+      if request.method=="POST":
+            form=vegetableform(request.POST)
+            if form.is_valid():
+                  form.save()
+                  posts=vegetable.objects.order_by('-id')[0]
+                  if posts.Asparagus ==1 :
+                        v=1
+                  elif posts.Broccoli ==1 :
+                        v=2
+                  elif posts.Red_Oak_Lettuce ==1 :
+                        v=3
+                  database.child("Input Field").child("Field 1").child("Veget").set(v)
+                  print('valid')
+                  return render(request, 'blog/Control01.html',{'form':form})
+            else:
+                  print('not valid')
+                  form=vegetableform()
+                  return render(request, 'blog/Power00.html',{'form':form})
+      else :
+            print("PP")
+            form=vegetableform()
+      # Power1 = database.child('Input Field').child('Field 1').child('Power').get().val()
+            return render(request, 'blog/Power00.html',{'form':form})
 def Setting01(request):
     if request.method=="POST":
           form=dtForm(request.POST)
@@ -116,7 +138,7 @@ def Setting01(request):
                 database.child("Input Field").child("Field 1").child("Temp").set(posts.temp)
                 database.child("Input Field").child("Field 1").child("pH").set(posts.pH)
                 database.child("Input Field").child("Field 1").child("Water").set(posts.Water)
-                return render(request, 'blog/Control01.html',{'form':form})
+                return render(request, 'blog/Setting01.html',{'form':form})
           else:
                 print('not valid')
                 form=dtForm()

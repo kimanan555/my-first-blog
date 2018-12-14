@@ -59,7 +59,9 @@
       <div class="container">
         <div class="row ">
           <div class="col">
-            {% if 1 == 1 %}
+            {% block content %}
+            {% endblock %}
+            {% comment %} {% if Power1 == 1 %}
             <button>
               <p align = 'left'>1</p>
               <a href="{% url 'Control01' %}" class="button1 "> 
@@ -108,7 +110,7 @@
             {% endif %}
           </div>
           <div class="col-4">
-              {% if 1 == 1 %}
+               {% if %}
               <button>
                 <p align = 'left'>2</p>
                 <a href="{% url 'Control02' %}" class="button1 "> 
@@ -154,7 +156,7 @@
                     </div>
                   </div>
                 </div>
-              {% endif %}
+             {% endif %} {% endcomment %}
           </div>
         </div>
       </div>

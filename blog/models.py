@@ -31,3 +31,8 @@ class dt2(models.Model):
     # temp=models.IntegerField(default=0)
     # Ec=models.IntegerField(default=0)
     # Water=models.IntegerField(default=0)
+class vegetable(models.Model):
+    Asparagus = models.BooleanField(default=True)
+    Broccoli =  models.BooleanField(default=True)
+    Red_Oak_Lettuce =  models.BooleanField(default=True)
+    
