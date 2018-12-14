@@ -8,7 +8,7 @@
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    background-image: url('/blog/static/img/83408-200.png');
+    background-image: url('83408-200.png');
     background-position-y: 675px;
     background-size: cover;
     
@@ -23,7 +23,7 @@
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  background-image: url('/blog/static/img/83408-200.png');
+  background-image: url('83408-200.png');
   background-position-y: 675px;
   background-size: cover;
   

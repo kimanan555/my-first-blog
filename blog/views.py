@@ -108,38 +108,38 @@ def Getstarto(request):
     return render(request, 'blog/Getstarto.html')
 def Setting01(request):
     if request.method=="POST":
-          form=dtForm2(request.POST)
+          form=dtForm(request.POST)
           if form.is_valid():
                 form.save()
-                posts=dt2.objects.order_by('-id')[0]
+                posts=dt.objects.order_by('-id')[0]
                 database.child("Input Field").child("Field 1").child("EC").set(posts.Ec)
                 database.child("Input Field").child("Field 1").child("Temp").set(posts.temp)
                 database.child("Input Field").child("Field 1").child("pH").set(posts.pH)
                 database.child("Input Field").child("Field 1").child("Water").set(posts.Water)
+                return render(request, 'blog/Control01.html',{'form':form})
+          else:
+                print('not valid')
+                form=dtForm()
                 return render(request, 'blog/Setting01.html',{'form':form})
-          # else:
-                # print('not valid')
-                # form=dtForm()
-                # return render(request, 'blog/Setting02.html',{'form':form})
     else:
           form=dtForm()
           return render(request, 'blog/Setting01.html',{'form':form})
 
 def Setting02(request):
     if request.method=="POST":
-          form=dtForm(request.POST)
+          form=dtForm2(request.POST)
           if form.is_valid():
                 form.save()
-                posts=dt.objects.order_by('-id')[0]
+                posts=dt2.objects.order_by('-id')[0]
                 database.child("Input Field").child("Field 2").child("EC").set(posts.Ec)
                 database.child("Input Field").child("Field 2").child("Temp").set(posts.temp)
                 database.child("Input Field").child("Field 2").child("pH").set(posts.pH)
                 database.child("Input Field").child("Field 2").child("Water").set(posts.Water)
+                return render(request, 'blog/Control02.html',{'form':form})
+          else:
+                print('not valid')
+                form=dtForm2()
                 return render(request, 'blog/Setting02.html',{'form':form})
-          # else:
-                # print('not valid')
-                # form=dtForm()
-                # return render(request, 'blog/Setting02.html',{'form':form})
     else:
           form=dtForm()
           return render(request, 'blog/Setting02.html',{'form':form})

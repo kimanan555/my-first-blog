@@ -97,7 +97,7 @@
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">pH</th>
-                                    <th scope="col"><input type="number" name="pH" min="0" max="7" scope="col" id='pH'></th>
+                                    <th scope="col"><input type="number" step="0.1" name="pH" min="0" max="7" scope="col" id='pH'></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -105,19 +105,19 @@
 
                                     <th scope="col"></th>
                                     <th scope="col">temperature</th>
-                                    <th scope="col"> <input type="number" name="temp" min="0" max="100" scope="col" id='temp'>°C</th>
+                                    <th scope="col"> <input type="number" step="0.1" name="temp" min="0" max="100" scope="col" id='temp'>°C</th>
                                 </tr>
                                 <tr>
 
                                     <th scope="col"></th>
                                     <th scope="col" d>Ec</th>
-                                    <th scope="col"><input type="number" name="Ec" min="0" max="5" scope="col" id='Ec'></th>
+                                    <th scope="col"><input type="number" step="0.1" name="Ec" min="0" max="5" scope="col" id='Ec'></th>
                                 </tr>
                                 <tr>
 
                                     <th scope="col"></th>
                                     <th scope="col">Water</th>
-                                    <th scope="col"><input type="number" name="Water" min="0" max="100" scope="col" id='Water'>%</th>
+                                    <th scope="col"><input type="number" step="0.1" name="Water" min="0" max="100" scope="col" id='Water'>%</th>
                                 </tr>                   
                                 </tbody>
                         </table>
@@ -126,7 +126,7 @@
                         <div class="col-8 ">
                             <div class="row">
                                     <div class="col-5 "><button type='submit'>Submit</button></div>
-                                    <div class="col-4 "><button>Cancel</button></div>
+                                    <div class="col-4 " href="{% url 'control01' %}"><button>Cancel</button></div>
                             
                             </div>
                         </div>
