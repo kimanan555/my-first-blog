@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hydroponic Farm-Setting02</title>
+    <title>Hydroponic Farm-Setting01</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -23,10 +23,50 @@
     <link href="{% static 'css/grayscale.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/back1.css' %}" rel="stylesheet">
     <link href="{% static 'css/full-slider.css' %}" rel="stylesheet">
-
-
-    
 </head>
+
+
+
+
+
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Launch demo modal
+      </button> -->
+      
+      {% comment %} <!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Choose mode</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                        <div class="d-block my-3">
+                                <div class="custom-control custom-radio">
+                                  <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                                  <label class="custom-control-label" for="credit">Auto</label>
+                                </div>
+                                <div class="custom-control custom-radio">
+                                  <input id="debit" name="paymentMethod" type="radio" class="custom-control-input" required="">
+                                  <label class="custom-control-label" for="debit">Manual</label>
+                                </div> 
+                              </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div> {% endcomment %}
+
+
+
+
 
 <body class="masthead ">
     <!-- Navigation -->
@@ -57,76 +97,115 @@
 
     </nav>
     <header>
+        <form method="post">
+        {% csrf_token %}
+    
         <div class="container-fluid">
             <div class="carousel-item active ">
                 <div class="row">
-                    <div class="col-6">
-                        <h3>1</h3>
-                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-                        <img src="{% static 'img/83408-200.png' %}" width="380" height="380">
-                        <br /> <br />
-                        &nbsp; &nbsp; &nbsp;
-                        <!-- <button>
-                            <a href="#">
-                                <font color="#000000">OK</font>
-                            </a>
-                        </button>&nbsp;
-                        <button>
-                            <a href="#">
-                                <font color="#000000">Cancel</font>
-                            </a>
-                        </button> -->
+                    <div class="col-6 border-right border-secondary">
+                            <h5></h1>Setting:Farm01 {{veget2}} : {{Mode1}}</h5>
+                            <!-- <div class="textice">Vegetable Name</div> -->
+                            <br/>  <br /> 
+                            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
+                          <img src="{% static 'img/83408-200.png' %} " width="380"  height="380">
 
-                        <br /> <br />
+                        <!-- Button trigger modal -->
+                        <br/><br/>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                            Mode
+                        </button>
+                        
+                        <!-- Modal -->
+                        <!-- <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Choose mode</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                                </div>
+                                <div class="modal-body">
+                                ...
+                                </div>
+                                <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                                </div>
+                            </div>
+                            </div>
+                        </div> -->
+
+
+
+
+                          
+                          &nbsp; &nbsp; &nbsp; 
+                          <!-- <button>
+                          <a href="{% url 'Setting01' %}"><font color="#000000">setting</font></a>
+                        </button> -->
+                          <br /> <br /> 
 
                     </div>
                     <div class="col-6">
-                        <form method="post">
-                        {% csrf_token %}
+                        {% comment %} <form method="post">
+                        {% csrf_token %} {% endcomment %}
                         <table class="table table-borderless">
-                        {% comment %} <form method="post"> {% endcomment %}
+                        <form method="post">
+                            <br /> <br /> 
                             <thead>
                                 <tr>
+                                    <th scope="col"></th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                     <th scope="col"></th>
                                 </tr>
                             </thead>
                             <thead>
+                                    <tr>
+                                        <th scope="col"></th>
+                                        <th scope="col">EC</th>
+                                        <th scope="col"><input type="number" step="0.1" name="Ec" min="0" max="100" scope="col" id='Ec'value="" required></th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                            <thead>
                             
                                 <tr>
                                     <th scope="col"></th>
                                     <th scope="col">pH</th>
-                                    <th scope="col"><input type="number" name="pH" min="0" max="7" scope="col" id='pH'></th>
+                                    <th scope="col"><input type="number" name="pH" step="0.1" min="0" max="100" scope="col" id='pH'value="" required></th>
+                                    <th scope="col"></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
 
                                     <th scope="col"></th>
-                                    <th scope="col">temperature</th>
-                                    <th scope="col"> <input type="number" name="temp" min="0" max="100" scope="col" id='temp'>°C</th>
+                                    <th scope="col">Temperature</th>
+                                    <th scope="col"> <input type="number" name="temp" step="0.1" min="0" max="100" scope="col" id='temp'value="" required ></th>
+                                    <th scope="col">°C</th>
                                 </tr>
+                                
                                 <tr>
 
                                     <th scope="col"></th>
-                                    <th scope="col" d>Ec</th>
-                                    <th scope="col"><input type="number" name="Ec" min="0" max="5" scope="col" id='Ec'></th>
-                                </tr>
-                                <tr>
-
-                                    <th scope="col"></th>
-                                    <th scope="col">Water</th>
-                                    <th scope="col"><input type="number" name="Water" min="0" max="100" scope="col" id='Water'>%</th>
+                                    <th scope="col">Humidity</th>
+                                    <th scope="col"><input type="number" name="Water" step="0.1" min="0" max="100" scope="col" id='Water' value="" required></th>
+                                    <th scope="col">%</th>
                                 </tr>                   
                                 </tbody>
                         </table>
                         <div class="row">
-                        <div class="col-4"></div>
+                        <div class="col-3"></div>
                         <div class="col-8 ">
                             <div class="row">
-                                    <div class="col-5 "><button type='submit'>Submit</button></div>
-                                    <div class="col-4 "><button>Cancel</button></div>
+                                    {% comment %} <button type="submit" class="col-5"><a href="{% url 'Control01' %}"><font color="#000000">Submit</font></a></button> {% endcomment %}
+                                    <div class="clo-2"><button type='submit' class='btn btn-success'><font color="#000000">Submit</font></button></div>
+                                    <div class="col-4 "><button type="button" class="btn btn-danger"><a href="{% url 'Control01' %}">Cancel</a></button>
+                                    {% comment %} <button class='btn btn-danger'><a  href="{% url 'Control01' %}"><font color="#000000">Cancel</font></a></button></div> {% endcomment %}
                             
                             </div>
                         </div>

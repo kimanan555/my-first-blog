@@ -25,9 +25,47 @@
   <link href="{% static 'css/back1.css' %}" rel="stylesheet">
   <link href="{% static 'css/full-slider.css' %}" rel="stylesheet">
 
-
+<form method="post">
+{% csrf_token %}
   <title>Hydroponic Farm-Control01</title>
 </head>
+<!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Choose mode</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                        <div class="d-block my-3">
+                                {% comment %} <div class="custom-control custom-radio">&nbsp;&nbsp;&nbsp;
+                                  <input id="Auto" name="Auto" type="checkbox" class="custom-control-input" >
+                                  <label class="custom-control-label" for="Auto">Auto</label>
+                                </div>
+                                <div class="custom-control custom-radio">&nbsp;&nbsp;&nbsp;
+                                  <input id="Manual" name="Manual" type="checkbox" class="custom-control-input" >
+                                  <label class="custom-control-label" for="Manual">Manual</label>
+                                </div>  {% endcomment %}
+                                <div class="custom-control custom-radio ">
+                                <input type="radio" class="custom-control-input" id="Auto" name="Auto"  >
+                                <label class="custom-control-label" for="Auto">Auto</label>
+                                </div>
+                                <div class="custom-control custom-radio ">
+                                  <input type="radio" class="custom-control-input" id="Manual" name="Manual" >
+                                  <label class="custom-control-label" for="Manual">Manual</label>
+                                </div> 
+                              </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
 
 <body class="masthead ">
   <!-- Navigation -->
@@ -55,69 +93,130 @@
     </div>
   </nav>
 
-
   </nav>
   <header>
     <div class="container-fluid">
       <div class="carousel-item active ">
         <div class="row">
-          <div class="col-6">
-              <h3>1</h3>
-              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; 
-            <img src="{% static 'img/83408-200.png' %} " width="380"  height="380">
-            <br /> <br /> 
-            &nbsp; &nbsp; &nbsp; 
-            <button>
-            <a href="{% url 'Setting01' %}"><font color="#000000">setting</font></a>
-          </button>
-            <br /> <br /> 
+          <div class="col-6 border-right border-secondary ">
+              <h5></h1>Farm01: {{veget2}} : {{Mode1}}</h5>
+              <!-- <div class="textice">Vegetable Name</div> -->
+              <br/>  <br /> 
+              {% if veget == 0 %}
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
+            <img src="{% static 'img/Asparagus.png' %} " width="380"  height="380">
+              {% endif %}
+              {% if veget == 1 %}
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
+            <img src="{% static 'img/Broccoli.png' %} " width="380"  height="380">
+              {% endif %}
+              {% if veget == 2 %}
+              &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
+            <img src="{% static 'img/Red_Oak_Lettuce.png' %} " width="380"  height="380">
+              {% endif %}
+            
+           {% comment %} {% if Mode == 1 %}
+            <div class="btn-group btn-group-toggle" data-toggle="buttons" >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="btn btn-success active">
+                  <input id="Auto"  name="Auto" type="submit" value="Submit" onclick="submit()">
+                  <input type="radio" name="Auto" id="Auto" autocomplete="off" checked> Auto
+                </label>
+                <label class="btn btn-success">
+                  <input type="radio" name="Manual" id="Manual" autocomplete="off"> Manual
+                </label>
+              </div>
+            {% else %}
+            <div class="btn-group btn-group-toggle" data-toggle="buttons" >
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label class="btn btn-success "> 
+                  <input type="radio" name="Auto" id="Auto" autocomplete="off" onclick="my_button_click_handler()"> Auto
+                  <button type="button" onclick="my_button_click_handler()">Click this button</button>
+                  <input type="radio" name="Auto" id="Auto" autocomplete="off" > Auto
+                </label>
+                <label class="btn btn-success active">
+                  <input type="radio" name="Manual" id="Manual" autocomplete="off" checked> Manual
+                </label>
+              </div>
+            {% endif%}
+              <input type="submit" value="Submit"> {% endcomment %}
+               <!-- Button trigger modal -->
+                        <br/><br/>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                            Mode
+                        </button>
+                        
+              <br /> <br/>
           </div>
-          <form>
           <div class="col-6">
               <table class="table table-borderless">
+                  <br /> 
                   <thead>
                     <tr>
                       <th scope="col"></th>
                       <th scope="col"></th>
                       <th scope="col"></th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
+                  <thead>
+                      <tr>
+                          <th scope="col"></th>
+                          <th scope="col" d>EC</th>
+                          <th scope="col">{{EC}}</th>
+                          <th scope="col"></th>
+                        </tr>
+                    </thead>
                   <thead>
                     <tr>
                       <th scope="col"></th>
                       <th scope="col">pH</th>
                       <th scope="col"> {{pH}}</th>
+                      <th scope="col"></th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr>
-
                       <th scope="col"></th>
                       <th scope="col">Temperature</th>
-                      <th scope="col"> {{Temp}}°C</th>
+                      <th scope="col"> {{Temp}}</th>
+                      <th scope="col">°C</th>
+                    </tr>
+                    
+                    <tr>
+
+                      <th scope="col"></th>
+                      <th scope="col">Humidity</th>
+                      <th scope="col">{{Humidity}}</th>
+                      <th scope="col">%</th>
                     </tr>
                     <tr>
 
                       <th scope="col"></th>
-                      <th scope="col" d>EC</th>
-                      <th scope="col">{{EC}}</th>
-                    </tr>
-                    <tr>
-
-                      <th scope="col"></th>
-                      <th scope="col">Unit Water</th>
-                      <th scope="col">{{Unit_Water}}unit</th>
+                      <th scope="col">Electricity bil</th>
+                      <th scope="col">{{Unit_Electric}}</th>
+                      <th scope="col">Unit</th>
                     </tr>
                   </tbody>
                 </table>
-            
+               </form>
+                <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;
+                  {% comment %} <div class="col-2">&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
+                  <button type="button" class="col-4 btn-success"><a href="{% url 'Setting01' %}">Setting</a></button>
+                  {% comment %} <button>
+                    <a href="{% url 'Setting01' %}"><font color="#000000">setting</font></a></button></div> {% endcomment %}
+                    {% comment %} </div> {% endcomment %}
+                  <div class="col-6 ">
+                    <button type="button" class="btn btn-danger">
+                      <a href="{% url 'Remove' %}">Remove farm</a></button>
+                  </div>
+                  </div>
           </div>
-        </form>
         </div>
       </div>
     </div>
   </header>
-
 
 
 

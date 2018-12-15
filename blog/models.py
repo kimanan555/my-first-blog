@@ -18,13 +18,24 @@ class Post(models.Model):
         return self.title
 
 class dt(models.Model):
-    pH=models.IntegerField(default=0)
-    temp=models.IntegerField(default=0)
-    Ec=models.IntegerField(default=0)
-    Water=models.IntegerField(default=0)
+    pH=models.FloatField(max_length=3)
+    temp=models.FloatField(max_length=3)
+    Ec=models.FloatField(max_length=3)
+    Water=models.FloatField(max_length=3)
 
 class dt2(models.Model):
-    pH=models.IntegerField(default=0)
-    temp=models.IntegerField(default=0)
-    Ec=models.IntegerField(default=0)
-    Water=models.IntegerField(default=0)
+    pH=models.FloatField(max_length=3)
+    temp=models.FloatField(max_length=3)
+    Ec=models.FloatField(max_length=3)
+    Water=models.FloatField(max_length=3)
+    # temp=models.IntegerField(default=0)
+    # Ec=models.IntegerField(default=0)
+    # Water=models.IntegerField(default=0)
+class vegetable(models.Model):
+    Asparagus = models.BooleanField(default=True)
+    Broccoli =  models.BooleanField(default=True)
+    Red_Oak_Lettuce =  models.BooleanField(default=True)
+class Mode(models.Model):
+    Auto = models.BooleanField(default=False)
+    Manual = models.BooleanField(default=False)
+    
