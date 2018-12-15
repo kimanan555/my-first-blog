@@ -77,6 +77,8 @@ def How_to_care(request):
     return render(request, 'blog/How_to_care.html',form)
 def Control01(request):
       Mode2=int(database.child("Input Field").child("Field 1").child("Auto").get().val())
+      MODE=["Manual", "Auto"]
+      Mode3=MODE[Mode2]
       veget=int(database.child("Input Field").child("Field 1").child("Veget").get().val())-1
       vegeta=["Asparagus","Broccoli","Red_Oak_Lettuce"]
       veget2=vegeta[veget]
@@ -92,23 +94,22 @@ def Control01(request):
                   form.save()
                   posts=Mode.objects.order_by('-id')[0]
                   print(posts.Auto)
-                  if posts.Auto ==1 :
-                        database.child("Input Field").child("Field 1").child("Auto").set(posts.Auto)
-                  elif posts.Auto ==0 :
-                        database.child("Input Field").child("Field 1").child("Auto").set(posts.Manual)
+                  print(posts.Manual)
+                  if posts.Auto == True :
+                        database.child("Input Field").child("Field 1").child("Auto").set(1)
+                  elif posts.Auto == False :
+                        database.child("Input Field").child("Field 1").child("Auto").set(0)
                   form={
                         'EC':EC, 'Humidity':Humidity, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
-                        'Unit_Water':Unit_Water, 'pH':pH, 'veget':veget, 'veget2':veget2, 'Mode':Mode2, 'form':form
+                        'Unit_Water':Unit_Water, 'pH':pH, 'veget':veget, 'veget2':veget2, 'Mode':Mode2, 'form':form, 'Mode1':Mode3
                         }
                   return render(request, 'blog/Control01.html',form)
-            else :
-                  print("kuy")
       else :
             print("af")
             form=modeform()
             form={
             'EC':EC, 'Humidity':Humidity, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
-            'Unit_Water':Unit_Water, 'pH':pH, 'veget':veget, 'veget2':veget2, 'Mode':Mode2, 'form':form
+            'Unit_Water':Unit_Water, 'pH':pH, 'veget':veget, 'veget2':veget2, 'Mode':Mode2, 'form':form, 'Mode1':Mode3
             }
       return render(request, 'blog/Control01.html',form)
 def Control02(request):

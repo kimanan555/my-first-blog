@@ -25,9 +25,47 @@
   <link href="{% static 'css/back1.css' %}" rel="stylesheet">
   <link href="{% static 'css/full-slider.css' %}" rel="stylesheet">
 
-
+<form method="post">
+{% csrf_token %}
   <title>Hydroponic Farm-Control01</title>
 </head>
+<!-- Modal -->
+      <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Choose mode</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                        <div class="d-block my-3">
+                                {% comment %} <div class="custom-control custom-radio">&nbsp;&nbsp;&nbsp;
+                                  <input id="Auto" name="Auto" type="checkbox" class="custom-control-input" >
+                                  <label class="custom-control-label" for="Auto">Auto</label>
+                                </div>
+                                <div class="custom-control custom-radio">&nbsp;&nbsp;&nbsp;
+                                  <input id="Manual" name="Manual" type="checkbox" class="custom-control-input" >
+                                  <label class="custom-control-label" for="Manual">Manual</label>
+                                </div>  {% endcomment %}
+                                <div class="custom-control custom-radio ">
+                                <input type="radio" class="custom-control-input" id="Auto" name="Auto"  >
+                                <label class="custom-control-label" for="Auto">Auto</label>
+                                </div>
+                                <div class="custom-control custom-radio ">
+                                  <input type="radio" class="custom-control-input" id="Manual" name="Manual" >
+                                  <label class="custom-control-label" for="Manual">Manual</label>
+                                </div> 
+                              </div>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+            </div>
+        </div>
 
 <body class="masthead ">
   <!-- Navigation -->
@@ -55,15 +93,13 @@
     </div>
   </nav>
 
-   <form method="post">
-    {% csrf_token %}
   </nav>
   <header>
     <div class="container-fluid">
       <div class="carousel-item active ">
         <div class="row">
           <div class="col-6 border-right border-secondary ">
-              <h5></h1>Farm01: {{veget2}}</h5>
+              <h5></h1>Farm01: {{veget2}} : {{Mode1}}</h5>
               <!-- <div class="textice">Vegetable Name</div> -->
               <br/>  <br /> 
               {% if veget == 0 %}
@@ -104,7 +140,13 @@
               </div>
             {% endif%}
               <input type="submit" value="Submit"> {% endcomment %}
-              
+               <!-- Button trigger modal -->
+                        <br/><br/>
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">
+                            Mode
+                        </button>
+                        
               <br /> <br/>
           </div>
           <div class="col-6">
