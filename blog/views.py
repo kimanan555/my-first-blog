@@ -150,13 +150,16 @@ def Power00(request):
                   #       form=vegetableform()
                   #       return render(request, 'blog/power00.html',{'form':form})
       elif veget >=1 :
-            # print("PP")
+            print("PP")
             # form=vegetableform()
       # Power1 = database.child('Input Field').child('Field 1').child('Power').get().val()
             return render(request, 'blog/power10.html')
       print("aaaa")
       return render(request, 'blog/power00.html')
 def Setting01(request):
+      Mode2=int(database.child("Input Field").child("Field 1").child("Auto").get().val())
+      MODE=["Manual", "Auto"]
+      Mode3=MODE[Mode2]
       veget=int(database.child("Input Field").child("Field 1").child("Veget").get().val())-1
       vegeta=["Asparagus","Broccoli","Red_Oak_Lettuce"]
       veget2=vegeta[veget]
@@ -169,21 +172,22 @@ def Setting01(request):
                 database.child("Input Field").child("Field 1").child("Temp").set(posts.temp)
                 database.child("Input Field").child("Field 1").child("pH").set(posts.pH)
                 database.child("Input Field").child("Field 1").child("Humidity").set(posts.Water)
+                database.child("Input Field").child("Field 1").child("Auto").set(0)
                 form = {
-                      'form':form, 'veget2':veget2
+                      'form':form, 'veget2':veget2, 'Mode1':Mode3
                 }
                 return render(request, 'blog/Control01.html',form)
-          else:
-                print('not valid')
-                form=dtForm()
-                form = {
-                      'form':form, 'veget2':veget2
-                }
-                return render(request, 'blog/Setting01.html',form)
+      #     else:
+      #           print('not valid')
+      #           form=dtForm()
+      #           form = {
+      #                 'form':form, 'veget2':veget2, 'Mode1':Mode3
+      #           }
+      #           return render(request, 'blog/Setting01.html',form)
       else:
           form=dtForm()
           form = {
-                      'form':form, 'veget2':veget2
+                      'form':form, 'veget2':veget2, 'Mode1':Mode3
                 }
           return render(request, 'blog/Setting01.html',form)
       form = {
@@ -209,5 +213,9 @@ def Setting02(request):
     else:
           form=dtForm()
           return render(request, 'blog/Setting02.html',{'form':form})
+def Remove(request):
+      print('s')
+      database.child("Input Field").child("Field 1").child("Veget").set(0)
+      return render(request, 'blog/Main.html')
 
 # data = database.child('Asparagus').child('EC').get().val(

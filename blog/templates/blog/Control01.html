@@ -203,12 +203,13 @@
                </form>
                 <div class="row">&nbsp;&nbsp;&nbsp;&nbsp;
                   {% comment %} <div class="col-2">&nbsp;&nbsp;&nbsp;&nbsp; {% endcomment %}
-                  <button type="button" class="col-4"><a href="{% url 'Setting01' %}"><font color="#000000">setting</font></a></button>
+                  <button type="button" class="col-4 btn-success"><a href="{% url 'Setting01' %}">Setting</a></button>
                   {% comment %} <button>
                     <a href="{% url 'Setting01' %}"><font color="#000000">setting</font></a></button></div> {% endcomment %}
                     {% comment %} </div> {% endcomment %}
                   <div class="col-6 ">
-                
+                    <button type="button" class="btn btn-danger">
+                      <a href="{% url 'Remove' %}">Remove farm</a></button>
                   </div>
                   </div>
           </div>

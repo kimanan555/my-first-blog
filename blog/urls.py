@@ -8,6 +8,7 @@ urlpatterns = [
     path('Control01/', views.Control01, name='Control01'),
     path('Control02/', views.Control02, name='Control02'),
     path('Getstarto/', views.Power00, name='Getstarto'),
+    path('Getstarto1/', views.Remove, name='Remove'),
     # path('Getstarto/', views.Getstarto, name='Getstarto'),
     path('Setting01/', views.Setting01, name='Setting01'),
     path('Setting02/', views.Setting02, name='Setting02'),

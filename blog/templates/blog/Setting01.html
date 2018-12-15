@@ -34,7 +34,7 @@
         Launch demo modal
       </button> -->
       
-      <!-- Modal -->
+      {% comment %} <!-- Modal -->
       <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -62,7 +62,7 @@
                 </div>
             </div>
             </div>
-        </div>
+        </div> {% endcomment %}
 
 
 
@@ -104,7 +104,7 @@
             <div class="carousel-item active ">
                 <div class="row">
                     <div class="col-6 border-right border-secondary">
-                            <h5></h1>Setting:Farm01 {{veget2}}</h5>
+                            <h5></h1>Setting:Farm01 {{veget2}} : {{Mode1}}</h5>
                             <!-- <div class="textice">Vegetable Name</div> -->
                             <br/>  <br /> 
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
@@ -199,12 +199,13 @@
                                 </tbody>
                         </table>
                         <div class="row">
-                        <div class="col-4"></div>
+                        <div class="col-3"></div>
                         <div class="col-8 ">
                             <div class="row">
                                     {% comment %} <button type="submit" class="col-5"><a href="{% url 'Control01' %}"><font color="#000000">Submit</font></a></button> {% endcomment %}
-                                    <div class="col-5 "><button type='submit' ><font color="#000000">Submit</font></button></div>
-                                    <div class="col-4 "><button ><a  href="{% url 'Control01' %}"><font color="#000000">Cancel</font></a></button></div>
+                                    <div class="clo-2"><button type='submit' class='btn btn-success'><font color="#000000">Submit</font></button></div>
+                                    <div class="col-4 "><button type="button" class="btn btn-danger"><a href="{% url 'Control01' %}">Cancel</a></button>
+                                    {% comment %} <button class='btn btn-danger'><a  href="{% url 'Control01' %}"><font color="#000000">Cancel</font></a></button></div> {% endcomment %}
                             
                             </div>
                         </div>
