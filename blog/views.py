@@ -76,7 +76,7 @@ def How_to_care(request):
     }
     return render(request, 'blog/How_to_care.html',form)
 def Control01(request):
-      Mode=int(database.child("Input Field").child("Field 1").child("Auto").get().val())
+      Mode2=int(database.child("Input Field").child("Field 1").child("Auto").get().val())
       veget=int(database.child("Input Field").child("Field 1").child("Veget").get().val())-1
       vegeta=["Asparagus","Broccoli","Red_Oak_Lettuce"]
       veget2=vegeta[veget]
@@ -86,10 +86,30 @@ def Control01(request):
       Unit_Electric = database.child('Field').child('Field 1').child('Unit Electric').get().val()
       Unit_Water = database.child('Field').child('Field 1').child('Unit Water').get().val()
       pH = database.child('Field').child('Field 1').child('pH').get().val()
-      form={
-          'EC':EC, 'Humidity':Humidity, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
-          'Unit_Water':Unit_Water, 'pH':pH, 'veget':veget, 'veget2':veget2, 'Mode':Mode
-      }
+      if request.method=="POST":
+            form=modeform(request.POST)
+            if form.is_valid():
+                  form.save()
+                  posts=Mode.objects.order_by('-id')[0]
+                  print(posts.Auto)
+                  if posts.Auto ==1 :
+                        database.child("Input Field").child("Field 1").child("Auto").set(posts.Auto)
+                  elif posts.Auto ==0 :
+                        database.child("Input Field").child("Field 1").child("Auto").set(posts.Manual)
+                  form={
+                        'EC':EC, 'Humidity':Humidity, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
+                        'Unit_Water':Unit_Water, 'pH':pH, 'veget':veget, 'veget2':veget2, 'Mode':Mode2, 'form':form
+                        }
+                  return render(request, 'blog/Control01.html',form)
+            else :
+                  print("kuy")
+      else :
+            print("af")
+            form=modeform()
+            form={
+            'EC':EC, 'Humidity':Humidity, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
+            'Unit_Water':Unit_Water, 'pH':pH, 'veget':veget, 'veget2':veget2, 'Mode':Mode2, 'form':form
+            }
       return render(request, 'blog/Control01.html',form)
 def Control02(request):
     EC = database.child('Field').child('Field 2').child('EC').get().val()
@@ -124,10 +144,10 @@ def Power00(request):
                         database.child("Input Field").child("Field 1").child("Veget").set(v)
                         print('valid')
                         return render(request, 'blog/Control01.html',{'form':form})
-                  else:
-                        print('not valid')
-                        form=vegetableform()
-                        return render(request, 'blog/power00.html',{'form':form})
+                  # else:
+                  #       print('not valid')
+                  #       form=vegetableform()
+                  #       return render(request, 'blog/power00.html',{'form':form})
       elif veget >=1 :
             # print("PP")
             # form=vegetableform()
