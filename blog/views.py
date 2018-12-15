@@ -65,10 +65,10 @@ def How_to_care(request):
     Temp2 = database.child('Suggest').child('Broccoli').child('Temp').get().val()
     Time2 = int(database.child('Suggest').child('Broccoli').child('Time').get().val())
     pH2 = database.child('Suggest').child('Broccoli').child('pH').get().val()
-    EC3 = database.child('Suggest').child('Grand Rapids Lettuce').child('EC').get().val()
-    Temp3 = database.child('Suggest').child('Grand Rapids Lettuce').child('Temp').get().val()
-    Time3 = int(database.child('Suggest').child('Grand Rapids Lettuce').child('Time').get().val())
-    pH3 = database.child('Suggest').child('Grand Rapids Lettuce').child('pH').get().val()
+    EC3 = database.child('Suggest').child('Red Oak Lettuce').child('EC').get().val()
+    Temp3 = database.child('Suggest').child('Red Oak Lettuce').child('Temp').get().val()
+    Time3 = int(database.child('Suggest').child('Red Oak Lettuce').child('Time').get().val())
+    pH3 = database.child('Suggest').child('Red Oak Lettuce').child('pH').get().val()
     form={
           'EC1':EC1, 'Temp1':Temp1, 'Time1':Time1 ,'pH1':pH1,
           'EC2':EC2, 'Temp2':Temp2, 'Time2':Time2 ,'pH2':pH2,

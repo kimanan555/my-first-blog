@@ -54,7 +54,7 @@
 
   <header >
     <div class="container-fluid">
-
+    <form>
       <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
           <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -81,7 +81,7 @@
                       <tr>
                         <th scope="col"></th>
                         <th scope="col">pH</th>
-                        <th scope="col"> 0</th>
+                        <th scope="col"> {{pH1}}</th>
                         <th scope="col"></th>
                       </tr>
                     </thead>
@@ -90,22 +90,22 @@
 
                         <th scope="col"></th>
                         <th scope="col">Temperature</th>
-                        <th scope="col"> 0</th>
+                        <th scope="col">{{Temp1}}</th>
                         <th scope="col"> ํC</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
                         <th scope="col" d>EC</th>
-                        <th scope="col">0</th>
+                        <th scope="col">{{EC1}}</th>
                         <th scope="col"></th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">Humidity</th>
-                        <th scope="col">0</th>
-                        <th scope="col">%</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">{{Time1}}</th>
+                        <th scope="col">day</th>
                       </tr>
                     </tbody>
                   </table>
@@ -140,7 +140,7 @@
                       <tr>
                         <th scope="col"></th>
                         <th scope="col">pH</th>
-                        <th scope="col"> 0</th>
+                        <th scope="col"> {{pH2}}</th>
                         <th scope="col"></th>
                       </tr>
                     </thead>
@@ -149,22 +149,22 @@
 
                         <th scope="col"></th>
                         <th scope="col">Temperature</th>
-                        <th scope="col"> 0 </th>
+                        <th scope="col">{{Temp2}} </th>
                         <th scope="col">ํC</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
                         <th scope="col" >EC</th>
-                        <th scope="col">0</th>
+                        <th scope="col">{{EC2}}</th>
                         <th scope="col"></th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">Humidity</th>
-                        <th scope="col">0</th>
-                        <th scope="col">%</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">{{Time2}}</th>
+                        <th scope="col">day</th>
                       </tr>
                     </tbody>
                   </table>
@@ -199,8 +199,8 @@
                     <thead>
                       <tr>
                         <th scope="col"></th>
-                        <th scope="col">Hp</th>
-                        <th scope="col"> 0</th>
+                        <th scope="col">pH</th>
+                        <th scope="col"> {{pH3}}</th>
                         <th scope="col"></th>
                       </tr>
                     </thead>
@@ -209,22 +209,22 @@
 
                         <th scope="col"></th>
                         <th scope="col">Temperature</th>
-                        <th scope="col"> 0</th>
+                        <th scope="col">{{Temp3}}</th>
                         <th scope="col"> ํC</th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
                         <th scope="col" d>EC</th>
-                        <th scope="col">0</th>
+                        <th scope="col">{{EC3}}</th>
                         <th scope="col"></th>
                       </tr>
                       <tr>
 
                         <th scope="col"></th>
-                        <th scope="col">Humidity</th>
-                        <th scope="col">0</th>
-                        <th scope="col">%</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">{{Time3}}</th>
+                        <th scope="col">day</th>
                       </tr>
                     </tbody>
                   </table>
@@ -250,7 +250,7 @@
           <span class="sr-only">Next</span>
         </a>
       </div>
-
+      </form>
     </div>
   </header>
 </body>
