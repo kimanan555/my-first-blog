@@ -35,4 +35,7 @@ class vegetable(models.Model):
     Asparagus = models.BooleanField(default=True)
     Broccoli =  models.BooleanField(default=True)
     Red_Oak_Lettuce =  models.BooleanField(default=True)
+class Mode(models.Model):
+    Auto = models.BooleanField(default=True)
+    Manual = models.BooleanField(default=True)
     

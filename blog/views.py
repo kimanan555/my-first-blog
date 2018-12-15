@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
-from .models import dt, dt2, vegetable
-from .forms import PostForm, dtForm, dtForm2, vegetableform
+from .models import dt, dt2, vegetable, Mode
+from .forms import PostForm, dtForm, dtForm2, vegetableform, modeform
 import pyrebase
 from django.db.models import Max
 
@@ -76,18 +76,21 @@ def How_to_care(request):
     }
     return render(request, 'blog/How_to_care.html',form)
 def Control01(request):
-    EC = database.child('Field').child('Field 1').child('EC').get().val()
-    Moisture = database.child('Field').child('Field 1').child('Moisture').get().val()
-    Temp = database.child('Field').child('Field 1').child('Temp').get().val()
-    Unit_Electric = database.child('Field').child('Field 1').child('Unit Electric').get().val()
-    Unit_Water = database.child('Field').child('Field 1').child('Unit Water').get().val()
-    Velocity = database.child('Field').child('Field 1').child('Velocity').get().val()
-    pH = database.child('Field').child('Field 1').child('pH').get().val()
-    form={
-          'EC':EC, 'Moisture':Moisture, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
-          'Unit_Water':Unit_Water, 'Velocity':Velocity, 'pH':pH
-    }
-    return render(request, 'blog/Control01.html',form)
+      Mode=int(database.child("Input Field").child("Field 1").child("Auto").get().val())
+      veget=int(database.child("Input Field").child("Field 1").child("Veget").get().val())-1
+      vegeta=["Asparagus","Broccoli","Red_Oak_Lettuce"]
+      veget2=vegeta[veget]
+      EC = database.child('Field').child('Field 1').child('EC').get().val()
+      Humidity = database.child('Field').child('Field 1').child('Humidity').get().val()
+      Temp = database.child('Field').child('Field 1').child('Temp').get().val()
+      Unit_Electric = database.child('Field').child('Field 1').child('Unit Electric').get().val()
+      Unit_Water = database.child('Field').child('Field 1').child('Unit Water').get().val()
+      pH = database.child('Field').child('Field 1').child('pH').get().val()
+      form={
+          'EC':EC, 'Humidity':Humidity, 'Temp':Temp, 'Unit_Electric':Unit_Electric, 
+          'Unit_Water':Unit_Water, 'pH':pH, 'veget':veget, 'veget2':veget2, 'Mode':Mode
+      }
+      return render(request, 'blog/Control01.html',form)
 def Control02(request):
     EC = database.child('Field').child('Field 2').child('EC').get().val()
     Moisture = database.child('Field').child('Field 2').child('Moisture').get().val()
@@ -101,35 +104,42 @@ def Control02(request):
           'Unit_Water':Unit_Water, 'Velocity':Velocity, 'pH':pH
     }
     return render(request, 'blog/Control02.html',form)
-def Getstarto(request):
-      Power1 = database.child('Input Field').child('Field 1').child('Power').get().val()
-      return render(request, 'blog/Getstarto.html',{'Power':Power1})
+# def Getstarto(request):
+#       Power1 = database.child('Input Field').child('Field 1').child('Power').get().val()
+#       return render(request, 'blog/Getstarto.html',{'Power':Power1})
 def Power00(request):
-      if request.method=="POST":
-            form=vegetableform(request.POST)
-            if form.is_valid():
-                  form.save()
-                  posts=vegetable.objects.order_by('-id')[0]
-                  if posts.Asparagus ==1 :
-                        v=1
-                  elif posts.Broccoli ==1 :
-                        v=2
-                  elif posts.Red_Oak_Lettuce ==1 :
-                        v=3
-                  database.child("Input Field").child("Field 1").child("Veget").set(v)
-                  print('valid')
-                  return render(request, 'blog/Control01.html',{'form':form})
-            else:
-                  print('not valid')
-                  form=vegetableform()
-                  return render(request, 'blog/Power00.html',{'form':form})
-      else :
-            print("PP")
-            form=vegetableform()
+      veget=int(database.child("Input Field").child("Field 1").child("Veget").get().val())
+      if veget == 0 :
+            if request.method=="POST":
+                  form=vegetableform(request.POST)
+                  if form.is_valid():
+                        form.save()
+                        posts=vegetable.objects.order_by('-id')[0]
+                        if posts.Asparagus ==1 :
+                              v=1
+                        elif posts.Broccoli ==1 :
+                              v=2
+                        elif posts.Red_Oak_Lettuce ==1 :
+                              v=3
+                        database.child("Input Field").child("Field 1").child("Veget").set(v)
+                        print('valid')
+                        return render(request, 'blog/Control01.html',{'form':form})
+                  else:
+                        print('not valid')
+                        form=vegetableform()
+                        return render(request, 'blog/power00.html',{'form':form})
+      elif veget >=1 :
+            # print("PP")
+            # form=vegetableform()
       # Power1 = database.child('Input Field').child('Field 1').child('Power').get().val()
-            return render(request, 'blog/Power00.html',{'form':form})
+            return render(request, 'blog/power10.html')
+      print("aaaa")
+      return render(request, 'blog/power00.html')
 def Setting01(request):
-    if request.method=="POST":
+      veget=int(database.child("Input Field").child("Field 1").child("Veget").get().val())-1
+      vegeta=["Asparagus","Broccoli","Red_Oak_Lettuce"]
+      veget2=vegeta[veget]
+      if request.method=="POST":
           form=dtForm(request.POST)
           if form.is_valid():
                 form.save()
@@ -137,15 +147,28 @@ def Setting01(request):
                 database.child("Input Field").child("Field 1").child("EC").set(posts.Ec)
                 database.child("Input Field").child("Field 1").child("Temp").set(posts.temp)
                 database.child("Input Field").child("Field 1").child("pH").set(posts.pH)
-                database.child("Input Field").child("Field 1").child("Water").set(posts.Water)
-                return render(request, 'blog/Setting01.html',{'form':form})
+                database.child("Input Field").child("Field 1").child("Humidity").set(posts.Water)
+                form = {
+                      'form':form, 'veget2':veget2
+                }
+                return render(request, 'blog/Control01.html',form)
           else:
                 print('not valid')
                 form=dtForm()
-                return render(request, 'blog/Setting01.html',{'form':form})
-    else:
+                form = {
+                      'form':form, 'veget2':veget2
+                }
+                return render(request, 'blog/Setting01.html',form)
+      else:
           form=dtForm()
-          return render(request, 'blog/Setting01.html',{'form':form})
+          form = {
+                      'form':form, 'veget2':veget2
+                }
+          return render(request, 'blog/Setting01.html',form)
+      form = {
+                  'veget2':veget2
+                }
+      return render(request, 'blog/Setting01.html',form)
 
 def Setting02(request):
     if request.method=="POST":

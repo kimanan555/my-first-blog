@@ -1,6 +1,6 @@
 from django import forms
 from django.db import transaction
-from .models import Post, dt, dt2, vegetable
+from .models import Post, dt, dt2, vegetable, Mode
 
 class PostForm(forms.ModelForm):
 
@@ -41,4 +41,11 @@ class vegetableform(forms.ModelForm):
             'Asparagus',
             'Broccoli',
             'Red_Oak_Lettuce',
+        )
+class modeform(forms.ModelForm):
+    class Meta:
+        model = Mode
+        fields = (
+            'Auto',
+            'Manual',
         )

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Hydroponic Farm-Setting02</title>
+    <title>Hydroponic Farm-Setting01</title>
 
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
@@ -57,11 +57,14 @@
 
     </nav>
     <header>
+        <form method="post">
+        {% csrf_token %}
+    
         <div class="container-fluid">
             <div class="carousel-item active ">
                 <div class="row">
                     <div class="col-6 border-right border-secondary">
-                            <h5></h1>Setting:Farm01</h5>
+                            <h5></h1>Setting:Farm01 {{veget2}}</h5>
                             <!-- <div class="textice">Vegetable Name</div> -->
                             <br/>  <br /> 
                             &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp;
@@ -75,8 +78,8 @@
 
                     </div>
                     <div class="col-6">
-                        <form method="post">
-                        {% csrf_token %}
+                        {% comment %} <form method="post">
+                        {% csrf_token %} {% endcomment %}
                         <table class="table table-borderless">
                         <form method="post">
                             <br /> <br /> 
@@ -127,7 +130,8 @@
                         <div class="col-4"></div>
                         <div class="col-8 ">
                             <div class="row">
-                                    <div class="col-5 "><button type='submit' ><a  href="{% url 'Control01' %}"><font color="#000000">Submit</font></a></button></div>
+                                    {% comment %} <button type="submit" class="col-5"><a href="{% url 'Control01' %}"><font color="#000000">Submit</font></a></button> {% endcomment %}
+                                    <div class="col-5 "><button type='submit' ><font color="#000000">Submit</font></button></div>
                                     <div class="col-4 "><button ><a  href="{% url 'Control01' %}"><font color="#000000">Cancel</font></a></button></div>
                             
                             </div>
